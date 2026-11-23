@@ -1,0 +1,47 @@
+{
+  "tools": [
+    {
+      "name": "search_kb",
+      "description": "Search the IT knowledge base (topics: password, vpn, laptop, software).",
+      "inputSchema": {
+        "type": "object",
+        "properties": { "query": { "type": "string" } },
+        "required": ["query"]
+      },
+      "annotations": { "title": "Search knowledge base", "readOnlyHint": true }
+    },
+    {
+      "name": "get_ticket_status",
+      "description": "Get the status of an IT ticket, e.g. INC-1001.",
+      "inputSchema": {
+        "type": "object",
+        "properties": { "ticket_id": { "type": "string" } },
+        "required": ["ticket_id"]
+      },
+      "annotations": { "title": "Get ticket status", "readOnlyHint": true }
+    },
+    {
+      "name": "create_ticket",
+      "description": "Create an IT ticket. priority: low | medium | high.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "summary": { "type": "string" },
+          "priority": { "type": "string", "default": "medium" }
+        },
+        "required": ["summary"]
+      },
+      "annotations": { "title": "Create ticket", "readOnlyHint": false, "destructiveHint": false }
+    },
+    {
+      "name": "delete_ticket",
+      "description": "Permanently delete an IT ticket.",
+      "inputSchema": {
+        "type": "object",
+        "properties": { "ticket_id": { "type": "string" } },
+        "required": ["ticket_id"]
+      },
+      "annotations": { "title": "Delete ticket", "readOnlyHint": false, "destructiveHint": true }
+    }
+  ]
+}

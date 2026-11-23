@@ -1,0 +1,11 @@
+﻿# IAP authorization extension: the gateway asks IAP to check the calling agent's
+# identity against IAM (Agent Identity + Unified Access Policies) on every request.
+# Start in DRY_RUN (log-only); delete that line to enforce.
+name: hem-iap-authz
+service: iap.googleapis.com
+failOpen: false
+timeout: 1s
+metadata:
+  iapPolicyVersion: "V2"
+  iamEnforcementMode: "DRY_RUN"
+

@@ -1,0 +1,14 @@
+﻿# Explicit DENY example: block MCP prompts entirely.
+name: hem-deny-prompts
+target:
+  resources:
+  - "projects/itp-ai-garage-space/locations/us-central1/agentGateways/hem-helpdesk-gw"
+policyProfile: REQUEST_AUTHZ
+httpRules:
+- to:
+    operations:
+    - mcp:
+        methods:
+        - name: "prompts"
+action: DENY
+
